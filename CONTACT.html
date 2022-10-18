@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>ENROLL NOW!<br>(CONTACT US) | CodingNepal</title>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+
+<style>	
+
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+	}
+	html {
+		font-size: 10px;
+		font-family: 'Montserrat', sans-serif;
+		scroll-behavior: smooth;
+	}
+	a {
+		text-decoration: none;
+	}
+	.container {
+		min-height: 100vh;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	img {
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+	}
+	p {
+		color: black;
+		font-size: 1.4rem;
+		margin-top: 5px;
+		line-height: 2.5rem;
+		font-weight: 300;
+		letter-spacing: 0.05rem;
+	}
+	.section-title {
+		font-size: 4rem;
+		font-weight: 300;
+		color: black;
+		margin-bottom: 10px;
+		text-transform: uppercase;
+		letter-spacing: 0.2rem;
+		text-align: center;
+	}
+	.section-title span {
+		color: crimson;
+	}
+	
+	.cta {
+		display: inline-block;
+		padding: 10px 30px;
+		color: white;
+		background-color: transparent;
+		border: 2px solid crimson;
+		font-size: 2rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1rem;
+		margin-top: 30px;
+		transition: 0.3s ease;
+		transition-property: background-color, color;
+	}
+	.cta:hover {
+		color: white;
+		background-color: crimson;
+	}
+	.brand h1 {
+		font-size: 3rem;
+		text-transform: uppercase;
+		color: white;
+	}
+	.brand h1 span {
+		color: crimson;
+	}
+	
+	/* Header section */
+	#header {
+		position: fixed;
+		z-index: 1000;
+		left: 0;
+		top: 0;
+		width: 100vw;
+		height: auto;
+	}
+	#header .header {
+		min-height: 8vh;
+		background-color: rgba(31, 30, 30, 0.24);
+		transition: 0.3s ease background-color;
+	}
+	#header .nav-bar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		height: 100%;
+		max-width: 1300px;
+		padding: 0 10px;
+	}
+	#header .nav-list ul {
+		list-style: none;
+		position: absolute;
+		background-color: rgb(31, 30, 30);
+		width: 100vw;
+		height: 100vh;
+		left: 100%;
+		top: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		z-index: 1;
+		overflow-x: hidden;
+		transition: 0.5s ease left;
+	}
+	#header .nav-list ul.active {
+		left: 0%;
+	}
+	#header .nav-list ul a {
+		font-size: 2.5rem;
+		font-weight: 500;
+		letter-spacing: 0.2rem;
+		text-decoration: none;
+		color: white;
+		text-transform: uppercase;
+		padding: 20px;
+		display: block;
+	}
+	#header .nav-list ul a::after {
+		content: attr(data-after);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(0);
+		color: rgba(240, 248, 255, 0.021);
+		font-size: 13rem;
+		letter-spacing: 50px;
+		z-index: -1;
+		transition: 0.3s ease letter-spacing;
+	}
+	#header .nav-list ul li:hover a::after {
+		transform: translate(-50%, -50%) scale(1);
+		letter-spacing: initial;
+	}
+	#header .nav-list ul li:hover a {
+		color: crimson;
+	}
+	#header .hamburger {
+		height: 60px;
+		width: 60px;
+		display: inline-block;
+		border: 3px solid white;
+		border-radius: 50%;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 100;
+		cursor: pointer;
+		transform: scale(0.8);
+		margin-right: 20px;
+	}
+	#header .hamburger:after {
+		position: absolute;
+		content: '';
+		height: 100%;
+		width: 100%;
+		border-radius: 50%;
+		border: 3px solid white;
+		animation: hamburger_puls 1s ease infinite;
+	}
+	#header .hamburger .bar {
+		height: 2px;
+		width: 30px;
+		position: relative;
+		background-color: white;
+		z-index: -1;
+	}
+	#header .hamburger .bar::after,
+	#header .hamburger .bar::before {
+		content: '';
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		left: 0;
+		background-color: white;
+		transition: 0.3s ease;
+		transition-property: top, bottom;
+	}
+	#header .hamburger .bar::after {
+		top: 8px;
+	}
+	#header .hamburger .bar::before {
+		bottom: 8px;
+	}
+	#header .hamburger.active .bar::before {
+		bottom: 0;
+	}
+	#header .hamburger.active .bar::after {
+		top: 0;
+	}
+	/* End Header section */
+	
+
+	
+	/* Keyframes */
+	@keyframes hamburger_puls {
+		0% {
+			opacity: 1;
+			transform: scale(1);
+		}
+		100% {
+			opacity: 0;
+			transform: scale(1.4);
+		}
+	}
+	@keyframes text_reveal_box {
+		50% {
+			width: 100%;
+			left: 0;
+		}
+		100% {
+			width: 0;
+			left: 100%;
+		}
+	}
+	@keyframes text_reveal {
+		100% {
+			color: white;
+		}
+	}
+	@keyframes text_reveal_name {
+		100% {
+			color: crimson;
+			font-weight: 500;
+		}
+	}
+	/* End Keyframes */
+	
+	/* Media Query For Tablet */
+	@media only screen and (min-width: 768px) {
+		.cta {
+			font-size: 2.5rem;
+			padding: 20px 60px;
+		}
+		h1.section-title {
+			font-size: 6rem;
+		}
+	
+		/* Hero */
+		#hero h1 {
+			font-size: 7rem;
+		}
+		/* End Hero */
+	
+		/* Services Section */
+		#services .service-bottom .service-item {
+			flex-basis: 45%;
+			margin: 2.5%;
+		}
+		/* End Services Section */
+	
+		/* Project */
+		#projects .project-item {
+			flex-direction: row;
+		}
+		#projects .project-item:nth-child(even) {
+			flex-direction: row-reverse;
+		}
+		#projects .project-item {
+			height: 400px;
+			margin: 0;
+			width: 100%;
+			border-radius: 0;
+		}
+		#projects .all-projects .project-info {
+			height: 100%;
+		}
+		#projects .all-projects .project-img {
+			height: 100%;
+		}
+		/* End Project */
+	
+		
+	}
+	/* End Media Query For Tablet */
+	
+	/* Media Query For Desktop */
+	@media only screen and (min-width: 1200px) {
+		/* header */
+		#header .hamburger {
+			display: none;
+		}
+		#header .nav-list ul {
+			position: initial;
+			display: block;
+			height: auto;
+			width: fit-content;
+			background-color: transparent;
+		}
+		#header .nav-list ul li {
+			display: inline-block;
+		}
+		#header .nav-list ul li a {
+			font-size: 1.8rem;
+		}
+		#header .nav-list ul a:after {
+			display: none;
+		}
+		/* End header */
+	
+		#services .service-bottom .service-item {
+			flex-basis: 22%;
+			margin: 1.5%;
+		}
+	}
+	/* End  Media Query For Desktop */
+    
+    /* Container */
+    *{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px;
+  background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
+}
+.container{
+  max-width: 800px;
+  background: #fff;
+  width: 800px;
+  padding: 25px 40px 10px 40px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+.container .text{
+  text-align: center;
+  font-size: 35px;
+  font-weight: 600;
+  background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.container form{
+  padding: 30px 0 0 0;
+}
+.container form .form-row{
+  display: flex;
+  margin: 32px 0;
+}
+form .form-row .input-data{
+  width: 100%;
+  height: 40px;
+  margin: 0 20px;
+  position: relative;
+}
+form .form-row .textarea{
+  height: 70px;
+}
+.input-data input,
+.textarea textarea{
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-size: 17px;
+  border-bottom: 2px solid rgba(0,0,0, 0.12);
+}
+.input-data input:focus ~ label, .textarea textarea:focus ~ label,
+.input-data input:valid ~ label, .textarea textarea:valid ~ label{
+  transform: translateY(-20px);
+  font-size: 14px;
+  color: #3498db;
+}
+.textarea textarea{
+  resize: none;
+  padding-top: 10px;
+}
+.input-data label{
+  position: absolute;
+  pointer-events: none;
+  bottom: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+.textarea label{
+  width: 100%;
+  bottom: 40px;
+  background: #fff;
+}
+.input-data .underline{
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+}
+.input-data .underline:before{
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 100%;
+  background: #3498db;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.input-data input:focus ~ .underline:before,
+.input-data input:valid ~ .underline:before,
+.textarea textarea:focus ~ .underline:before,
+.textarea textarea:valid ~ .underline:before{
+  transform: scale(1);
+}
+.submit-btn .input-data{
+  overflow: hidden;
+  height: 45px!important;
+  width: 25%!important;
+}
+.submit-btn .input-data .inner{
+  height: 100%;
+  width: 300%;
+  position: absolute;
+  left: -100%;
+  background: -webkit-linear-gradient(right, #56d8e4bd, #dc07f0, #56d8e4, #9f01ea);
+  transition: all 0.4s;rgb(234, 1, 215)rgb(234, 1, 164)
+}
+.submit-btn .input-data:hover .inner{
+  left: 0;
+}
+.submit-btn .input-data input{
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 700px) {
+  .container .text{
+    font-size: 30px;
+  }
+  .container form{
+    padding: 10px 0 0 0;
+  }
+  .container form .form-row{
+    display: block;
+  }
+  form .form-row .input-data{
+    margin: 35px 0!important;
+  }
+  .submit-btn .input-data{
+    width: 40%!important;
+  }
+}
+  /* End Container */
+    
+    	
+</style>
+
+<script>const hamburger = document.querySelector('.header .nav-bar .nav-list .hamburger');
+  const mobile_menu = document.querySelector('.header .nav-bar .nav-list ul');
+  const menu_item = document.querySelectorAll('.header .nav-bar .nav-list ul li a');
+  const header = document.querySelector('.header.container');
+  
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobile_menu.classList.toggle('active');
+  });
+  
+  document.addEventListener('scroll', () => {
+    var scroll_position = window.scrollY;
+    if (scroll_position > 250) {
+      header.style.backgroundColor = '#29323c';
+    } else {
+      header.style.backgroundColor = 'transparent';
+    }
+  });
+  
+  menu_item.forEach((item) => {
+    item.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobile_menu.classList.toggle('active');
+    });
+  });</script>
+
+  
+   
+   <body>
+    <!-- Header -->
+<section id="header">
+  <div class="header container">
+    <div class="nav-bar">
+      <div class="brand">
+        <a href="#hero">
+          <h1><span>R</span>achelle </h1>
+        </a>
+      </div>
+      <div class="nav-list">
+        <div class="hamburger">
+          <div class="bar"></div>
+        </div>
+        <ul>
+          <li><a href="index.html" data-after="Home">Home</a></li>
+          <li><a href="NEW%20RESUME.html" data-after="Resume">RESUME</a></li>
+          <li><a href="ABOUT.html" data-after="About">About</a></li>
+          <li><a href="VIDEO.HTML" data-after="Home">VIDEO</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Header -->
+
+
+<!-- Container -->
+    <div class="container">
+        <div class="text">CONTACT US</div>
+        <form action="#">
+           <div class="form-row">
+              <div class="input-data">
+                 <input type="text" required>
+                 <div class="underline"></div>
+                 <label for="">First Name</label>
+              </div>
+              <div class="input-data">
+                 <input type="text" required>
+                 <div class="underline"></div>
+                 <label for="">Last Name</label>
+              </div>
+           </div>
+           <div class="form-row">
+              <div class="input-data">
+                 <input type="text" required>
+                 <div class="underline"></div>
+                 <label for="">Email Address</label>
+              </div>
+              <div class="input-data">
+                 <input type="text" required>
+                 <div class="underline"></div>
+                 <label for="">Contact Number</label>
+              </div>
+           </div>
+           <div class="form-row">
+              <div class="input-data textarea">
+                 <textarea rows="8" cols="80" required></textarea>
+                 <br />
+                 <div class="underline"></div>
+                 <label for="">Write your message</label>
+                 <br />
+                 <div class="form-row submit-btn">
+                    <div class="input-data">
+                       <div class="inner"></div>
+                       <input type="submit" value="submit">
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </form>
+     </div>
+     <!-- End Container -->
+   
+<script src="./app.js"></script>
+  
+	<script src="https://cdn.plyr.io/3.6.3/plyr.polyfilled.js"></script>
+   </body>
+</html>
